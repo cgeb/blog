@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_120117) do
+ActiveRecord::Schema.define(version: 2019_06_15_122945) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.integer "views_count", default: 0
+    t.integer "author_id"
+    t.date "publish_date"
+    t.boolean "is_published"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

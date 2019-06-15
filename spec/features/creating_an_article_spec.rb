@@ -15,8 +15,8 @@ RSpec.describe "create an article" do
     expect(current_path).to eq(new_article_path)
 
     fill_in("Title", with: "Test title")
-    check("Is Published")
-    fill_in("Publish Date", with: "2019/06/15")
+    check("Is published")
+    fill_in("Publish date", with: "2019-06-15")
     fill_in("Content", with: "Content")
     click_button("Save")
     expect(current_path).to eq(articles_path)
@@ -25,7 +25,7 @@ RSpec.describe "create an article" do
       expect(page).to have_selector(".title", text: "Test title")
       expect(page).to have_selector(".views-count", text: "0")
       expect(page).to have_selector(".author", text: current_user.name)
-      expect(page).to have_selector(".publish-date", text: "2019/6/15")
+      expect(page).to have_selector(".publish-date", text: "2019-06-15")
     end
   end
 end
