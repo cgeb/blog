@@ -1,10 +1,11 @@
+require "support/login_helper"
 require "rails_helper"
 
-Rspec.configure do |c|
+RSpec.configure do |c|
   c.include LoginHelper
 end
 
-describe "create an article" do
+RSpec.describe "create an article" do
   let(:current_user) { User.create(name: "Chris", email: "chris@test.com", password: "password") }
 
   it "can save and display an article" do
