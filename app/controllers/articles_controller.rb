@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to articles_path
       flash[:notice] = "Article created!"
+    else
+      flash.now[:alert] = @article.errors.full_messages.join("\n")
+      render "new"
     end
   end
 
