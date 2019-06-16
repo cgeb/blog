@@ -1,3 +1,7 @@
 <%= link_to "New", new_article_path %>
+<%= form_tag articles_path, method: 'get' do %>
+  <%= text_field_tag :q %>
+  <%= submit_tag 'Search' %>
+<% end %>
 
 <%= render @articles %>

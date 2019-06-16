@@ -1,9 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :check_logged_in, only: [:new, :create, :edit, :update, :destroy]
   
   def index
-    @articles = Article.all
+    @articles = Article.search(params[:q])
+  end
+
+  def show
   end
 
   def new
