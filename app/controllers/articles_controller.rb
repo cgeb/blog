@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
   before_action :check_logged_in, only: [:new, :create, :edit, :update, :destroy]
   
   def index
@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
+    @article.increment!(:views_count)
   end
 
   def new
@@ -47,6 +49,9 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = current_user.articles.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Only the owner of the article can do that."
+    redirect_to articles_path
   end
 
   def article_params
