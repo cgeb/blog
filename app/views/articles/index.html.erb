@@ -22,4 +22,5 @@
       <%= render @articles %>
     </tbody>
   </table>
+  <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>

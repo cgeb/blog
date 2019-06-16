@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :check_logged_in, only: [:new, :create, :edit, :update, :destroy]
   
   def index
-    @articles = Article.search(params[:q])
+    @articles = Article.search(params[:q]).paginate(page: params[:page], per_page: 5)
   end
 
   def show
