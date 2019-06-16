@@ -17,6 +17,7 @@ RSpec.describe "update an article" do
     fill_in("Content", with: "Updated Content")
     click_button("Save")
     expect(current_path).to eq(articles_path)
+    expect(page).to have_content("Article updated!")
 
     within("#article_1") do
       expect(page).to have_selector(".title", text: "Updated title")

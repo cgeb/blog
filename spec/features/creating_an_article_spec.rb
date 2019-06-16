@@ -16,6 +16,7 @@ RSpec.describe "create an article" do
     fill_in("Content", with: "Content")
     click_button("Save")
     expect(current_path).to eq(articles_path)
+    expect(page).to have_content("Article created!")
 
     within("#article_1") do
       expect(page).to have_selector(".title", text: "Test title")
