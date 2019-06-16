@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :check_logged_in, only: [:new, :create, :edit, :update, :destroy]
   
   def index
     @articles = Article.all
@@ -47,5 +48,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :is_published, :publish_date, :content)
+  end
+
+  def check_logged_in
+    redirect_to new_session_path unless current_user
   end
 end
