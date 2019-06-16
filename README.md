@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version: 2.5.3
+Rails version: 5.2.3
 
-Things you may want to cover:
+Features of the blog:
+- Create a user
+- Log in
+- Log out
+- Create a article
+- Edit a article
+- Delete a article
+- See a article
+- Search for article
+- Pagination
+- Authorization (only the creator of a article can edit or delete it)
+- Authentication (only logged in users can create articles)
+- Article view count tracking
+- Built with (mainly) TDD using Rspec and Capybara
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Difficulties:
+Making the blog UI acceptable in a short time. I solved in by using Bootstrap for faster development.
