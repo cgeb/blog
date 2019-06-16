@@ -1,26 +1,3 @@
 <h1>New Article</h1>
-<%= form_for @article do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
 
-  <div>
-    <%= f.label :is_published %>
-    <%= f.check_box :is_published %>
-  </div>
-
-  <div>
-    <%= f.label :publish_date %>
-    <%= f.date_field :publish_date %>
-  </div>
-
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div>
-    <%= f.submit "Save" %>
-  </div>
-<% end %>
+<%= render "form" %>

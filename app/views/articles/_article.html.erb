@@ -3,4 +3,9 @@
   <div class="views-count"><%= article.views_count %></div>
   <div class="author"><%= article.author.name %></div>
   <div class="publish-date"><%= article.publish_date %></div>
+  <div class="links">
+    <%= link_to "Edit", edit_article_path(article) %>
+    <%= link_to "Show", article_path(article) %>
+    <%= link_to "Delete", article_path(article), method: :destroy %>
+  </div>
 </div>
