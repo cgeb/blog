@@ -1,11 +1,11 @@
-<div id="<%= dom_id(article) %>">
-  <div class="title"><%= article.title %></div>
-  <div class="views-count"><%= article.views_count %></div>
-  <div class="author"><%= article.author.name %></div>
-  <div class="publish-date"><%= article.publish_date %></div>
-  <div class="links">
+<tr id="<%= dom_id(article) %>">
+  <td class="title"><%= article.title %></td>
+  <td class="views-count"><%= article.views_count %></td>
+  <td class="author"><%= article.author.name %></td>
+  <td class="publish-date"><%= article.publish_date %></td>
+  <td class="links">
     <%= link_to "Edit", edit_article_path(article) %>
     <%= link_to "Show", article_path(article) %>
     <%= link_to "Delete", article_path(article), method: :delete %>
-  </div>
-</div>
+  </td>
+</tr>

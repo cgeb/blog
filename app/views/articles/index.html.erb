@@ -1,7 +1,25 @@
-<%= link_to "New", new_article_path %>
-<%= form_tag articles_path, method: 'get' do %>
-  <%= text_field_tag :q %>
-  <%= submit_tag 'Search' %>
-<% end %>
+<div class="container col-md-8">
+  <h1><%= @articles.size %> Articles</h1>
+  <div style="padding:10px; float:right"><%= link_to "New", new_article_path, class: "btn btn-primary" %></div>
+  <div style="padding:10px; float:right">
+    <%= form_tag articles_path, method: 'get' do %>
+      <%= text_field_tag :q %>
+      <%= submit_tag 'Search', class: "btn btn-success", style: "margin-left:10px"%>
+    <% end %>
+  </div>
 
-<%= render @articles %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Views Count</th>
+        <th scope="col">Author</th>
+        <th scope="col">Publish Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @articles %>
+    </tbody>
+  </table>
+</div>

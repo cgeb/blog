@@ -10,15 +10,31 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to "Log out", destroy_session_path, method: :delete %>
-      <%= current_user.name %>
-    <% else %>
-      <%= link_to "Log in", new_session_path %>
-    <% end %>
+    <nav class="navbar navbar-light navbar-expand-sm">
+      <%= link_to "Articles", root_path, class: "navbar-brand" %>
+      <div class="container col-md-8">
+        <ul class="navbar-nav ml-auto">
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to "Log out", destroy_session_path, method: :delete, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled"><%= current_user.email %></a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Sign up", users_signup_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log in", new_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav> 
     <div id="flash_messages">
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, :class => "flash #{key}") %>
+        <%= content_tag(:div, value, class: "alert alert-#{flash_key(key)}") %>
       <% end %>
     </div>
     <%= yield %>
