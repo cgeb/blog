@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= link_to "Log out", destroy_session_path, method: :delete %>
+      <%= current_user.name %>
+    <% else %>
+      <%= link_to "Log in", new_session_path %>
+    <% end %>
     <div id="flash_messages">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, :class => "flash #{key}") %>
