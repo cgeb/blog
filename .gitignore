@@ -35,3 +35,6 @@
 
 # for Emacs users
 *~
+
+# for macOS users
+.DS_Store
