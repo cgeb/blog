@@ -38,3 +38,6 @@
 
 # for macOS users
 .DS_Store
+
+# ignore simplecov outputs
+/coverage
