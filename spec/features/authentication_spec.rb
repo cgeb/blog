@@ -6,9 +6,9 @@ RSpec.configure do |c|
 end
 
 RSpec.describe 'authentication' do
-  describe 'sign in' do
-    let(:current_user) { User.create(id: 1, name: 'Chris', email: 'chris@test.com', password: 'password') }
+  let(:current_user) { User.create(id: 1, name: 'Chris', email: 'chris@test.com', password: 'password') }
 
+  describe 'sign in' do
     context 'sing in with wrong password' do
       it 'cannot create a new session with wrong password' do
         visit new_session_path
@@ -44,6 +44,15 @@ RSpec.describe 'authentication' do
   end
 
   describe 'sign out' do
+    it 'delete a session' do
+      login_as(current_user)
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Log out')
 
+      click_on('Log out')
+      expect(current_path).to eq(new_session_path)
+      expect(page).to have_content('Logged out!')
+      expect(page.get_rack_session[:user_id]).to be nil
+    end
   end
 end
