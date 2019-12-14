@@ -17,7 +17,7 @@ RSpec.describe 'authentication' do
         click_button('Login')
         expect(current_path).to eq(new_session_path)
         expect(page).to have_content('Email or password is invalid')
-        expect(session[:user_id]).to be nil
+        expect(page.get_rack_session[:user_id]).to be nil
       end
 
       it 'cannot create a new session with non-existent user' do
@@ -27,6 +27,7 @@ RSpec.describe 'authentication' do
         click_button('Login')
         expect(current_path).to eq(new_session_path)
         expect(page).to have_content('Email or password is invalid')
+        expect(page.get_rack_session[:user_id]).to be nil
       end
 
       context 'sign in successfully with correct email and password' do
@@ -36,6 +37,7 @@ RSpec.describe 'authentication' do
           fill_in('Password', with: current_user.password)
           click_button('Login')
           expect(current_path).to eq(root_path)
+          expect(page.get_rack_session_key('user_id')).to eq current_user.id
         end
       end
     end
