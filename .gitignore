@@ -29,3 +29,15 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# for developers who like `bin/bundle install --path vendor/bundle`
+/vendor/bundle
+
+# for Emacs users
+*~
+
+# for macOS users
+.DS_Store
+
+# ignore simplecov outputs
+/coverage
