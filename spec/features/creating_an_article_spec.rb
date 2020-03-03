@@ -24,6 +24,15 @@ RSpec.describe "create an article" do
       expect(page).to have_selector(".author", text: current_user.name)
       expect(page).to have_selector(".publish-date", text: "2019-06-15")
     end
+
+    expect(page).to have_content('Show')
+    click_on('Show')
+    expect(current_path).to eq(article_path(1))
+
+    within(".card-body") do
+      expect(page).to have_selector(".card-title", text: "Test title")
+      expect(page).to have_selector(".card-text", text: "Content")
+    end
   end
 
   it "displays any errors on page" do
