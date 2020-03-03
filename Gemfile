@@ -46,6 +46,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'simplecov'
+  # Enable to access an application session in tests
+  gem 'rack_session_access'
 end
 
 group :development do

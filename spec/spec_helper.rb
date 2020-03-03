@@ -1,3 +1,5 @@
+require "rack_session_access/capybara"
+
 require 'simplecov'
 SimpleCov.start do
   add_filter %r{^/test/}
