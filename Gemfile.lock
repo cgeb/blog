@@ -133,7 +133,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     popper_js (1.14.5)
     public_suffix (3.1.0)
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -266,7 +266,7 @@ DEPENDENCIES
   jbuilder (~> 2.10)
   jquery-rails (~> 4.3, >= 4.3.5)
   listen (>= 3.0.5, < 3.2)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack_session_access
   rails (~> 6.0, >= 6.0.2.1)
   rspec-rails (~> 3.9, >= 3.9.1)
